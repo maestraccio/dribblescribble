@@ -10,8 +10,8 @@
 version = "1.1"
 date = "20230115"
 
-import os 
-import subprocess 
+import os
+import subprocess
 from os.path import expanduser
 from time import sleep
 
@@ -90,7 +90,7 @@ met \"f\", vanaf een vrij
 punt op dezelfde lijn, of
 anders een lijn dichter
 bij een doel.
-%s Je tegenstander scoort  
+%s Je tegenstander scoort
       nu een punt!       %s
 Het spel eindigt wanneer
 een doel is bereikt (\"d\"-
@@ -120,7 +120,7 @@ Alle toetsinputopties
 bevinden zich op de
 middelste regel van een
 QWERTY-toetsenbord, van
-\"A\" t/m \"G\": 
+\"A\" t/m \"G\":
 
 %s ll key input options
   (alle toetsinputopties)
@@ -135,13 +135,13 @@ QWERTY-toetsenbord, van
 
 en om te zetten van \"H\"
 t/m \"L\", zoals in Vim:
-%s (%sest)  ← links  
+%s (%sest)  ← links
   (%sazerswoude)
-%s (%suid)  ↓ omlaag 
+%s (%suid)  ↓ omlaag
   (%saarsveld)
-%s (%soord) ↑ omhoog 
+%s (%soord) ↑ omhoog
   (%sortenhoef)
-%s (%sost)  → rechts 
+%s (%sost)  → rechts
   (%seusden)
 
 daar mag een \"\\\" of
@@ -220,7 +220,7 @@ a %sfree kick%s (\"f\") from,
 or if there isn't one
 left free, one on a line
 closer to a goal.
-%s   Your opponent scores  
+%s   Your opponent scores
       a point now!       %s
 The game ends when a goal
 (\"d\"-\"h\") is reached, the
@@ -261,7 +261,7 @@ and to play a move from
 %s (or %s)  ← left
  (%sest  = %sazerswoude)
 %s (or %s)  ↓ down
- (%suid  = %saarsveld) 
+ (%suid  = %saarsveld)
 %s (or %s)  ↑ up
  (%soord = %sortenhoef)
 %s (or %s)  → right
@@ -312,7 +312,7 @@ saved game (or %sancel)?""" % (Green + stuff[1] + R, Green + stuff[0] + R, Green
     colpos = """
 and your p%ssition is
 somewhere on column \"%s\".
-""" 
+"""
     blue = "Blue"
     red= "Red"
     freekicklist1 = "Choose a letter from"
@@ -381,7 +381,7 @@ while player in pl:
             print(colpos % (Green + o + R, "j"))
         elif (pos - 22) % 26 == 0:
             print(colpos % (Green + o + R, "k"))
-        for i in grid: 
+        for i in grid:
             print(i, end = "")
         print()
     elif move.upper() == "G":
@@ -396,7 +396,7 @@ while player in pl:
                         from Dribblescribblegame import grid, pos, player, bf, rf
                         print(gameretreiveconfirmed)
                         print()
-                        for i in grid: 
+                        for i in grid:
                             print(i, end = "")
                         print()
                     else:
@@ -445,7 +445,7 @@ while player in pl:
                 if player == Blue:
                     donedot += 0
                 else:
-                    donedot -= 52 
+                    donedot -= 52
                 gridrow = grid[donedot:donedot + 26]
                 if "a" in gridrow:
                     player = pl[pl.index(player) - 1]
@@ -523,7 +523,7 @@ while player in pl:
                     elif prepos.lower() == "k":
                         pos = donedot-4
                     grid[pos] = here
-                    for i in grid: 
+                    for i in grid:
                         print(i, end = "")
                     print()
                     break
@@ -670,7 +670,7 @@ while player in pl:
             pos = pos3
             player = pl[pl.index(player) - 1]
         print()
-        for i in grid: 
+        for i in grid:
             print(i, end = "")
         print()
         if here in [grid[28],grid[30],grid[32],grid[34], grid[36], grid[38], grid[40], grid[42], grid[44], grid[46], grid[48], grid[392], grid[394], grid[396], grid[398], grid[400], grid[402], grid[404], grid[406], grid[408], grid[410], grid[412]]:
