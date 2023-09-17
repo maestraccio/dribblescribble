@@ -465,6 +465,7 @@ while player in pl:
                             print(winner % (Blue + str(bfcount) + R,Red + str(rfcount) + R,Red + red + R))
                     exit()
         optionslist = []
+<<<<<<< HEAD
         for i in dotsinrow:
             if (i-2) % 26 == 0:
                 optionslist.append("a")
@@ -528,6 +529,72 @@ while player in pl:
                 break
             else:
                 pass
+=======
+        if move != "mov":
+            for i in dotsinrow:
+                if (i-2) % 26 == 0:
+                    optionslist.append("a")
+                elif (i-4) % 26 == 0:
+                    optionslist.append("b")
+                elif (i-6) % 26 == 0:
+                    optionslist.append("c")
+                elif (i-8) % 26 == 0:
+                    optionslist.append("d")
+                elif (i-10) % 26 == 0:
+                    optionslist.append("e")
+                elif (i-12) % 26 == 0:
+                    optionslist.append("f")
+                elif (i-14) % 26 == 0:
+                    optionslist.append("g")
+                elif (i-16) % 26 == 0:
+                    optionslist.append("h")
+                elif (i-18) % 26 == 0:
+                    optionslist.append("i")
+                elif (i-20) % 26 == 0:
+                    optionslist.append("j")
+                elif (i-22) % 26 == 0:
+                    optionslist.append("k")
+            grid[pos] = col + f + R
+            prep = "Y"
+            while prep == "Y":
+                print(freekicklist1)
+                for i in optionslist:
+                    print(col + i + " " + R, end = "")
+                print()
+                prepos = input(freekicklist2)
+                if prepos in exitlist:
+                    exit()
+                elif prepos.lower() in optionslist:
+                    if prepos.lower() == "a":
+                        pos = donedot-24
+                    elif prepos.lower() == "b":
+                        pos = donedot-22
+                    elif prepos.lower() == "c":
+                        pos = donedot-20
+                    elif prepos.lower() == "d":
+                        pos = donedot-18
+                    elif prepos.lower() == "e":
+                        pos = donedot-16
+                    elif prepos.lower() == "f":
+                        pos = donedot-14
+                    elif prepos.lower() == "g":
+                        pos = donedot-12
+                    elif prepos.lower() == "h":
+                        pos = donedot-10
+                    elif prepos.lower() == "i":
+                        pos = donedot-8
+                    elif prepos.lower() == "j":
+                        pos = donedot-6
+                    elif prepos.lower() == "k":
+                        pos = donedot-4
+                    grid[pos] = here
+                    for i in grid:
+                        print(i, end = "")
+                    print()
+                    break
+                else:
+                    pass
+>>>>>>> db28eba83ccd0de6c9201b706bc99458fb664261
     elif len(move.replace("/", "").replace("\\", "")) < 4:
         print(illegalmove)
     elif len(move.lower().replace("/", "").replace("\\", "").replace(" ", "")) == 3:
