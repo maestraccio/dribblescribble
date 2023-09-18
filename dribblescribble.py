@@ -465,7 +465,6 @@ while player in pl:
                             print(winner % (Blue + str(bfcount) + R,Red + str(rfcount) + R,Red + red + R))
                     exit()
         optionslist = []
-<<<<<<< HEAD
         for i in dotsinrow:
             if (i-2) % 26 == 0:
                 optionslist.append("a")
@@ -529,7 +528,6 @@ while player in pl:
                 break
             else:
                 pass
-=======
         if move != "mov":
             for i in dotsinrow:
                 if (i-2) % 26 == 0:
@@ -594,7 +592,6 @@ while player in pl:
                     break
                 else:
                     pass
->>>>>>> db28eba83ccd0de6c9201b706bc99458fb664261
     elif len(move.replace("/", "").replace("\\", "")) < 4:
         print(illegalmove)
     elif len(move.lower().replace("/", "").replace("\\", "").replace(" ", "")) == 3:
