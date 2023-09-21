@@ -7,7 +7,7 @@
 # \  L' |
 #  \___/ Maestraccio
 
-version = "2.2"
+version = "2.25"
 date = "20230921"
 
 import os, subprocess, textwrap
@@ -94,7 +94,7 @@ if "," in playerslike:
     pl = []
     plin = playerslike.split(",")[:2]
     for i in plin:
-        pl.append(i.strip()[:25])
+        pl.append(i.strip()[:w])
 print()
 
 def showgrid(grid):
@@ -104,12 +104,12 @@ def showgrid(grid):
 
 def alloptions():
     options1 = textwrap.wrap("All keybord input options are located on the middle line of a QWERTY-keyboard from \"A\" to \"G\":",width = w)
-    options2 = """%sll keyboard options
+    options2 = """%sssistance with input
 %score and position
 %sescription and rules
 %sree kick
-%same save/restore""" % (Green+"a"+R,Green+"s"+R,Green+"d"+R,Green+"f"+R,Green+"g"+R)
-    options3 = textwrap.wrap("and to play a move from \"H\" to \"L\" like in Vim:",width = w)
+%same backup/restore""" % (Green+"a"+R,Green+"s"+R,Green+"d"+R,Green+"f"+R,Green+"g"+R)
+    options3 = textwrap.wrap("and to play a move from \"H\" to \"L\" (like in Vim):",width = w)
     options4 = """%s       : ← left
 %s       : ↓ down
 %s       : ↑ up
@@ -282,10 +282,10 @@ def freekick(pos):
 
 def gameback(grid,num,pos,sl,pl):
     stuff = ["M", "R"]
-    filestuffquestion = textwrap.wrap("Do you want to \"M\"ake or \"R\"estore a backup?",width = w)
+    filestuffquestion = textwrap.wrap("Do you want to \"M\"ake or \"R\"estore a game backup?",width = w)
     gamewriteconfirmed = textwrap.wrap("A backup of the current game was succesfully made. To restore, start a new game and choose \"G\"ame - \"R\"estore.",width = w)
-    gameretreiveconfirmed = textwrap.wrap("The backup was succesfully restored.",width = w)
-    gamenobackup = textwrap.wrap("No backup file was found on this device.",width = w)
+    gameretreiveconfirmed = textwrap.wrap("The game backup was succesfully restored.",width = w)
+    gamenobackup = textwrap.wrap("No game backup file was found on this device.",width = w)
     filename = "Dribblescribblegame.py"
     filestuff = ""
     while filestuff.upper() not in stuff:
@@ -452,26 +452,6 @@ while game == True:
                             grid[pos+24] = cl[i]+a+R
                         elif j == -2:
                             ar = cl[i]+"-"+R
-#                        if j == -27:
-#                            ar = cl[i]+"↖"+R
-#                            grid[pos-1] = cl[i]+a+R
-#                        elif j == -25:
-#                            ar = cl[i]+"↑"+R
-#                        elif j == -23:
-#                            ar = cl[i]+"↗"+R
-#                            grid[pos+1] = cl[i]+a+R
-#                        elif j == 2:
-#                            ar = cl[i]+"→"+R
-#                        elif j == 27:
-#                            ar = cl[i]+"↘"+R
-#                            grid[pos+26] = cl[i]+a+R
-#                        elif j == 25:
-#                            ar = cl[i]+"↓"+R
-#                        elif j == 23:
-#                            ar = cl[i]+"↙"+R
-#                            grid[pos+24] = cl[i]+a+R
-#                        elif j == -2:
-#                            ar = cl[i]+"←"+R
                         aim = pos + j
                         if grid[aim] in targets:
                             if grid[aim] in targets[1:]:
@@ -491,7 +471,7 @@ while game == True:
                     if done == True:
                         print()
                         print(cl[i]+forcen(player+" ends the game")+R)
-                        sl[pl.index(player)] += 0.5
+                        sl[pl.index(player)] += 0.1
                         wp = pl[sl.index(max(sl))]
                         ws = int(max(sl))
                         wc = cl[sl.index(max(sl))]
