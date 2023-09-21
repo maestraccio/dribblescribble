@@ -7,7 +7,7 @@
 # \  L' |
 #  \___/ Maestraccio
 
-version = "2.1"
+version = "2.2"
 date = "20230921"
 
 import os, subprocess, textwrap
@@ -433,25 +433,45 @@ while game == True:
                     grid[pos] = cl[i]+x+R
                     for j in movelist:
                         if j == -27:
-                            ar = cl[i]+"↖"+R
+                            ar = cl[i]+"\\"+R
                             grid[pos-1] = cl[i]+a+R
                         elif j == -25:
-                            ar = cl[i]+"↑"+R
+                            ar = cl[i]+"|"+R
                         elif j == -23:
-                            ar = cl[i]+"↗"+R
+                            ar = cl[i]+"/"+R
                             grid[pos+1] = cl[i]+a+R
                         elif j == 2:
-                            ar = cl[i]+"→"+R
+                            ar = cl[i]+"-"+R
                         elif j == 27:
-                            ar = cl[i]+"↘"+R
+                            ar = cl[i]+"\\"+R
                             grid[pos+26] = cl[i]+a+R
                         elif j == 25:
-                            ar = cl[i]+"↓"+R
+                            ar = cl[i]+"|"+R
                         elif j == 23:
-                            ar = cl[i]+"↙"+R
+                            ar = cl[i]+"/"+R
                             grid[pos+24] = cl[i]+a+R
                         elif j == -2:
-                            ar = cl[i]+"←"+R
+                            ar = cl[i]+"-"+R
+#                        if j == -27:
+#                            ar = cl[i]+"↖"+R
+#                            grid[pos-1] = cl[i]+a+R
+#                        elif j == -25:
+#                            ar = cl[i]+"↑"+R
+#                        elif j == -23:
+#                            ar = cl[i]+"↗"+R
+#                            grid[pos+1] = cl[i]+a+R
+#                        elif j == 2:
+#                            ar = cl[i]+"→"+R
+#                        elif j == 27:
+#                            ar = cl[i]+"↘"+R
+#                            grid[pos+26] = cl[i]+a+R
+#                        elif j == 25:
+#                            ar = cl[i]+"↓"+R
+#                        elif j == 23:
+#                            ar = cl[i]+"↙"+R
+#                            grid[pos+24] = cl[i]+a+R
+#                        elif j == -2:
+#                            ar = cl[i]+"←"+R
                         aim = pos + j
                         if grid[aim] in targets:
                             if grid[aim] in targets[1:]:
