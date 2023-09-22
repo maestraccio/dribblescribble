@@ -7,8 +7,8 @@
 # \  L' |
 #  \___/ Maestraccio
 
-version = "2.25"
-date = "20230921"
+version = "2.3"
+date = "20230922"
 
 import os, subprocess, textwrap
 from os.path import expanduser
@@ -102,78 +102,6 @@ def showgrid(grid):
         print(grid[i], end = "", flush = True)
         sleep(0.001)
 
-def alloptions():
-    options1 = textwrap.wrap("All keybord input options are located on the middle line of a QWERTY-keyboard from \"A\" to \"G\":",width = w)
-    options2 = """%sssistance with input
-%score and position
-%sescription and rules
-%sree kick
-%same backup/restore""" % (Green+"a"+R,Green+"s"+R,Green+"d"+R,Green+"f"+R,Green+"g"+R)
-    options3 = textwrap.wrap("and to play a move from \"H\" to \"L\" (like in Vim):",width = w)
-    options4 = """%s       : ← left
-%s       : ↓ down
-%s       : ↑ up
-%s       : → right""" % (Green+"h"+R,Green+"j"+R,Green+"k"+R,Green+"l"+R)
-    options5 = textwrap.wrap("These can be preceeded with a back- or forward slash (\"\\\" or \"/\"):",width = w)
-    options6 = """%s or %s: ↖ left up
-%s or %s: ↙ left down
-%s or %s: ↗ right up
-%s or %s: ↘ right down""" % (Green+"\\h"+R,Green+"\\k"+R,Green+"/h"+R,Green+"/j"+R,Green+"/k"+R,Green+"/l"+R,Green+"\\j"+R,Green+"\\l"+R)
-    options7 = textwrap.wrap("There are some exceptions of course:",width = w)
-    options8 = """%s or %s: abort game.""" % (Red+exitlist[0].lower()+R,Red+exitlist[1].lower()+R)
-    options9 = textwrap.wrap("Confirm every input with \"Enter\"",width = w)
-    for i in options1:
-        print(i)
-    print(options2)
-    for i in options3:
-        print(i)
-    print(options4)
-    for i in options5:
-        print(i)
-    print(options6)
-    for i in options7:
-        print(i)
-    print(options8)
-    for i in options9:
-        print(i)
-    play = input()
-    if play.upper() in exitlist:
-        exit()
-alloptions()
-
-def score():
-    print()
-    score = textwrap.wrap("The current score is:",width = w)
-    for i in score:
-        print(i)
-    print(Red+str(int(sl[0]))+R+" - "+Blue+str(int(sl[1]))+R)
-    if pos % w == 2:
-        plet = "a"
-    elif pos % w == 4:
-        plet = "b"
-    elif pos % w == 6:
-        plet = "c"
-    elif pos % w == 8:
-        plet = "d"
-    elif pos % w == 10:
-        plet = "e"
-    elif pos % w == 12:
-        plet = "f"
-    elif pos % w == 14:
-        plet = "g"
-    elif pos % w == 16:
-        plet = "h"
-    elif pos % w == 18:
-        plet = "i"
-    elif pos % w == 20:
-        plet = "j"
-    elif pos % w == 22:
-        plet = "k"
-    position = textwrap.wrap("It's player %s's turn from a position somewhere on column %s." % (player,plet),width = w)
-    for i in position:
-        print(i)
-    print()
-
 def description():
     logo()
     des1 = textwrap.wrap("is a fun fork of \"Paper soccer\" and was written in memory of Ludo, my respected father, who taught us how to play it with pen and paper.",width = w)
@@ -213,6 +141,81 @@ def description():
         exit()
     if play.lower() == "a":
         alloptions()
+
+def alloptions():
+    options1 = textwrap.wrap("All keybord input options are located on the middle line of a QWERTY-keyboard from \"A\" to \"G\":",width = w)
+    options2 = """%sssistance with input
+%score and position
+%sescription and rules
+%sree kick
+%same backup/restore""" % (Green+"a"+R,Green+"s"+R,Green+"d"+R,Green+"f"+R,Green+"g"+R)
+    options3 = textwrap.wrap("and to play a move from \"H\" to \"L\" (like in Vim):",width = w)
+    options4 = """%s       : ← left
+%s       : ↓ down
+%s       : ↑ up
+%s       : → right""" % (Green+"h"+R,Green+"j"+R,Green+"k"+R,Green+"l"+R)
+    options5 = textwrap.wrap("These can be preceeded with a back- or forward slash (\"\\\" or \"/\"):",width = w)
+    options6 = """%s or %s: ↖ left up
+%s or %s: ↙ left down
+%s or %s: ↗ right up
+%s or %s: ↘ right down""" % (Green+"\\h"+R,Green+"\\k"+R,Green+"/h"+R,Green+"/j"+R,Green+"/k"+R,Green+"/l"+R,Green+"\\j"+R,Green+"\\l"+R)
+    options7 = textwrap.wrap("There are some exceptions of course:",width = w)
+    options8 = """%s or %s: abort game.""" % (Red+exitlist[0].lower()+R,Red+exitlist[1].lower()+R)
+    options9 = textwrap.wrap("Choose \"d\" for the description and rules. Confirm every input with \"Enter\"",width = w)
+    for i in options1:
+        print(i)
+    print(options2)
+    for i in options3:
+        print(i)
+    print(options4)
+    for i in options5:
+        print(i)
+    print(options6)
+    for i in options7:
+        print(i)
+    print(options8)
+    print()
+    for i in options9:
+        print(i)
+    play = input()
+    if play.upper() in exitlist:
+        exit()
+    elif play.lower() == "d":
+        description()
+alloptions()
+
+def score():
+    print()
+    score = textwrap.wrap("The current score is:",width = w)
+    for i in score:
+        print(i)
+    print(Red+str(int(sl[0]))+R+" - "+Blue+str(int(sl[1]))+R)
+    if pos % w == 2:
+        plet = "a"
+    elif pos % w == 4:
+        plet = "b"
+    elif pos % w == 6:
+        plet = "c"
+    elif pos % w == 8:
+        plet = "d"
+    elif pos % w == 10:
+        plet = "e"
+    elif pos % w == 12:
+        plet = "f"
+    elif pos % w == 14:
+        plet = "g"
+    elif pos % w == 16:
+        plet = "h"
+    elif pos % w == 18:
+        plet = "i"
+    elif pos % w == 20:
+        plet = "j"
+    elif pos % w == 22:
+        plet = "k"
+    position = textwrap.wrap("It's player %s's turn from a position somewhere on column %s." % (player,plet),width = w)
+    for i in position:
+        print(i)
+    print()
 
 def freekick(pos):
     if player == pl[0]:
